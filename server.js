@@ -59,6 +59,11 @@ app.post('/pump-name', (req, res) => {
   res.sendStatus(204); // No Content
 });
 
+// Redirect all other routes to /pumps
+app.use((req, res, next) => {
+  res.redirect('/pumps');
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
